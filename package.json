@@ -1,0 +1,17 @@
+{
+  "name": "discriminator-field-issue",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Fnxxxxo/discriminator-field-issue.git",
+  "author": "Fnxxxxo",
+  "license": "MIT",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
+  "devDependencies": {
+    "lerna": "^3.22.0"
+  }
+}

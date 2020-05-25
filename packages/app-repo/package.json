@@ -1,0 +1,23 @@
+{
+  "name": "app-repo",
+  "version": "1.0.0",
+  "description": "My badass Nuxt.js project",
+  "author": "Fnxxxxo",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt-ts",
+    "build": "nuxt-ts build",
+    "generate": "nuxt-ts generate",
+    "start": "nuxt-ts start"
+  },
+  "dependencies": {
+    "nuxt": "^2.0.0",
+    "npm-repo": "1.0.0",
+    "@vuex-orm/core": "^0.36.3",
+    "@nuxt/typescript-runtime": "^0.4.7"
+  },
+  "devDependencies": {
+    "@nuxt/typescript-build": "^1.0.0",
+    "ts-loader": "^7.0.5"
+  }
+}

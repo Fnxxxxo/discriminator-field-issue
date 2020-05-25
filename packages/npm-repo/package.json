@@ -1,0 +1,59 @@
+{
+  "name": "npm-repo",
+  "version": "1.0.0",
+  "main": "lib/index.cjs.js",
+  "module": "lib/index.esm.js",
+  "author": "Fnxxxxo",
+  "license": "MIT",
+  "typings": "./types/index.d.ts",
+  "files": [
+    "lib",
+    "types"
+  ],
+  "scripts": {
+    "clean": "rimraf dist",
+    "dev": "cross-env NODE_ENV=development rollup -c -w rollup.config.js",
+    "build": "cross-env NODE_ENV=production rollup -c rollup.config.js",
+    "doc": "typedoc --out docs --target es6 --theme minimal --mode file src",
+    "start": "rollup -c rollup.config.ts -w",
+    "test": "jest --coverage",
+    "lint": "eslint --ext .ts,.js --ignore-path ../../.gitignore src",
+    "fix": "eslint --fix --ext .ts,.js --ignore-path ../../.gitignore src"
+  },
+  "devDependencies": {
+    "@rollup/plugin-json": "^4.0.0",
+    "@types/jest": "^24.0.19",
+    "@types/node": "^12.11.1",
+    "@typescript-eslint/eslint-plugin": "^2.4.0",
+    "@typescript-eslint/parser": "^2.4.0",
+    "@vuex-orm/core": "^0.36.3",
+    "cross-env": "^6.0.3",
+    "eslint": "^6.5.1",
+    "jest": "^24.9.0",
+    "jest-config": "^24.9.0",
+    "lodash": "^4.17.15",
+    "rimraf": "^3.0.0",
+    "rollup": "1.27.9",
+    "rollup-plugin-analyzer": "^3.2.2",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-peer-deps-external": "^2.2.0",
+    "rollup-plugin-sourcemaps": "^0.4.2",
+    "rollup-plugin-terser": "^5.1.2",
+    "rollup-plugin-typescript2": "^0.24.3",
+    "ts-jest": "^24.1.0",
+    "ts-node": "^8.4.1",
+    "typedoc": "^0.15.0",
+    "typescript": "^3.7.2",
+    "vue": "^2.6.11",
+    "vuex": "^3.4.0"
+  },
+  "peerDependencies": {
+    "@vuex-orm/core": "^0.36.3",
+    "vue": "^2.6.11",
+    "vuex": "^3.4.0"
+  },
+  "dependencies": {
+    "lodash": "^4.17.15"
+  }
+}
