@@ -1,14 +1,13 @@
 /**
  * Created by Jaron Long on 2019/10/21
  */
-import resolve from 'rollup-plugin-node-resolve'
-import commonjs from 'rollup-plugin-commonjs'
+import resolve from '@rollup/plugin-node-resolve'
+import commonjs from '@rollup/plugin-commonjs'
 import sourceMaps from 'rollup-plugin-sourcemaps'
 import typescript from 'rollup-plugin-typescript2'
 import json from '@rollup/plugin-json'
 import { terser } from 'rollup-plugin-terser'
 import analyze from 'rollup-plugin-analyzer'
-import pkg from './package.json'
 import peerDepsExternal from 'rollup-plugin-peer-deps-external'
 
 const libraryName = 'Models'
@@ -35,7 +34,6 @@ function entry(input, output) {
           extendedDiagnostics: process.env.NODE_ENV === 'production'
         },
         useTsconfigDeclarationDir: true,
-        objectHashIgnoreUnknownHack: true,
         clean: process.env.NODE_ENV === 'production'
       }),
       // Allow bundling cjs modules (unlike webpack, rollup doesn't understand cjs)
@@ -71,7 +69,7 @@ export default [
     },
     {
       dir: 'lib',
-      format: 'esm',
+      format: 'es',
       chunkFileNames: 'bundle/chunk.[format].[hash].js',
       entryFileNames: '[name].[format].js',
       sourcemap: process.env.NODE_ENV === 'production'

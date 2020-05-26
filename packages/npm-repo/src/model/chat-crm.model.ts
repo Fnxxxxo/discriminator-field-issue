@@ -1,14 +1,14 @@
 /**
  * Created by Jaron Long on 2020/5/22
  */
-import { ChatModel } from '.'
-import { Database } from '@vuex-orm/core'
+import { ChatModel } from './index'
+import { Database, Fields } from '@vuex-orm/core'
 
 export class ChatCrmModel extends ChatModel {
   static entity = 'chats_crm'
   static baseEntity = 'chats'
 
-  static fields() {
+  static fields(): Fields {
     return {
       ...super.fields(),
       group: this.number(0)
@@ -16,10 +16,4 @@ export class ChatCrmModel extends ChatModel {
   }
 }
 
-export const ChatCrmStore = {}
-
-export function initialize(database: Database) {
-  if (database) {
-    database.register(ChatCrmModel, ChatCrmStore)
-  }
-}
+export default ChatCrmModel

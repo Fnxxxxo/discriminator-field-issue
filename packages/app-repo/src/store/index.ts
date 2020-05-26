@@ -3,19 +3,23 @@
  */
 import VuexORM from '@vuex-orm/core'
 import {
-  initializeChat,
-  initializeChatCrmModel
+  ChatCrmModel,
+  ChatModel,
+  UserModel,
+  UserDoctorModel,
+  UserPatientModel
 } from 'npm-repo'
+
+import {ChatHrModel} from './chat-hr.model'
 import * as actions from './actions'
 
-// I want to do this with a discriminator type 'hr'
-import { initialize as initializeHr } from './chat-hr.model'
-
-
 const database = new VuexORM.Database()
-initializeChat(database)
-initializeChatCrmModel(database)
-initializeHr(database)
+database.register(UserModel)
+database.register(UserDoctorModel)
+database.register(ChatModel)
+database.register(ChatCrmModel)
+database.register(UserPatientModel)
+database.register(ChatHrModel)
 
 export const plugins = [VuexORM.install(database)]
 

@@ -2,9 +2,12 @@
 
 > Discriminator field issue
 
+See console for results.
+
 ## What I want
-Find a base model in a npm repo. Then extend it in an app repo. The sub model should be of right type.
-See `/packages/app-repo/store/index.ts`
+1. Find a base model in a npm repo. Then extend it in an app repo. The sub model should be of right type.
+See `/packages/app-repo/store/chat-hr.model.ts`
+2. Use base User and Chat entity to describe the common logic of chat. Use sub entities for specific cases.
 
 ## Build Setup
 

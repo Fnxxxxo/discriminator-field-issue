@@ -1,14 +1,14 @@
 /**
  * Created by Jaron Long on 2019/11/19
  */
-import { Database, Model } from '@vuex-orm/core'
-import { ChatCrmModel } from '.'
+import { Database, Model, Fields } from '@vuex-orm/core'
+import { ChatCrmModel, UserModel } from './index'
 
 export class ChatModel extends Model {
   static entity = 'chats'
   static typeKey = '_type'
 
-  static fields() {
+  static fields(): Fields {
     return {
       // chatId or deviceId
       _type: this.string('crm'),
@@ -18,7 +18,11 @@ export class ChatModel extends Model {
       chatUnionId: this.number(null).nullable(),
       channel: this.string(null).nullable(),
       updateTime: this.attr(new Date()),
-      unread: this.number(0)
+      unread: this.number(0),
+      targetId: this.attr(null).nullable(),
+      target: this.belongsTo(UserModel, 'targetId'),
+      ownerId: this.attr(null).nullable(),
+      owner: this.belongsTo(UserModel, 'ownerId'),
     }
   }
 
@@ -29,10 +33,4 @@ export class ChatModel extends Model {
   }
 }
 
-export const ChatStore = {}
-
-export function initialize(database: Database) {
-  if (database) {
-    database.register(ChatModel, ChatStore)
-  }
-}
+export default ChatModel
